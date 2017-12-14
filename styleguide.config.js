@@ -36,8 +36,15 @@ module.exports = {
   serverPort: 6062,
   require: [
     'bootstrap/dist/css/bootstrap.css',
-    'bootstrap-vue/dist/bootstrap-vue.js',
     'bootstrap-vue/dist/bootstrap-vue.css',
     'font-awesome/css/font-awesome.css',
+  ],
+  mixins: [
+    {
+      beforeCreate: function() {
+        const Vue = require('vue').default;
+        Vue.use(require('bootstrap-vue/dist/bootstrap-vue.js'));
+      }
+    }
   ]
 };

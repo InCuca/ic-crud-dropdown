@@ -138,7 +138,7 @@ export default {
      */
     icon: {
       type: String,
-      default: null
+      default: 'bars'
     },
     /**
      * Array of current items of the Entitity
