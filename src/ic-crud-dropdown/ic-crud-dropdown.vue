@@ -116,7 +116,7 @@
 </template>
 
 <script>
-import IcFormly from '../ic-formly/ic-formly.vue'
+import IcFormly from 'ic-formly'
 import texts from './text-props.js'
 import debounce from 'debounce'
 import InfiniteLoading from 'vue-infinite-loading'

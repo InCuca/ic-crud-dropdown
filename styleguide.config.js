@@ -33,5 +33,10 @@ module.exports = {
 		},
     devtool: 'inline-source-map'
   },
-  serverPort: 6062
+  serverPort: 6062,
+  require: [
+    'bootstrap/dist/css/bootstrap.css',
+    'bootstrap-vue',
+    'font-awesome',
+  ]
 };
