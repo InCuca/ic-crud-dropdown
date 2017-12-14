@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
-import Dropdown from '@/components/ic-crud-dropdown/ic-crud-dropdown.vue'
-import { showModal, clickOk } from '../../helpers/modals'
-import { submitForm } from '../../helpers/formly'
-import { click } from '../../helpers/native'
-import { companies, companyFields } from '../../mocks/company'
+import Dropdown from '@/ic-crud-dropdown/ic-crud-dropdown.vue'
+import { showModal, clickOk } from '../helpers/modals'
+import { submitForm } from '../helpers/formly'
+import { click } from '../helpers/native'
+import { companies, companyFields } from '../mocks/company'
 
 Vue.use(BootstrapVue)
 

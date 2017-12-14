@@ -301,7 +301,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped="">
+<style lang="scss" scoped>
+@import "~/bootstrap/scss/functions";
+@import "~/bootstrap/scss/variables";
+@import "~/bootstrap/scss/mixins";
+
 .iccd-container {
   display: inline-block;
 }
