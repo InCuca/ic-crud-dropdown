@@ -22,7 +22,7 @@ module.exports = {
       /* The component itself */
       name: 'ic-crud-dropdown documentation',
       content: 'docs/Introduction.md',
-      components: 'src/**/*.vue',
+      components: './src/**/*.vue',
       // ignore: ['src/ignored-component/ignored-component.vue'],
       sections: getDocSections()
     },
@@ -36,7 +36,8 @@ module.exports = {
   serverPort: 6062,
   require: [
     'bootstrap/dist/css/bootstrap.css',
-    'bootstrap-vue',
-    'font-awesome',
+    'bootstrap-vue/dist/bootstrap-vue.js',
+    'bootstrap-vue/dist/bootstrap-vue.css',
+    'font-awesome/css/font-awesome.css',
   ]
 };

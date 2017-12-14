@@ -121,27 +121,14 @@ import texts from './text-props.js'
 import debounce from 'debounce'
 import InfiniteLoading from 'vue-infinite-loading'
 import PerfectScrollbar from 'perfect-scrollbar'
-import bModal from 'bootstrap-vue/es/components/modal/modal'
-import bButton from 'bootstrap-vue/es/components/button/button'
-import bDropdown from 'bootstrap-vue/es/components/dropdown/dropdown'
-import bDropdownItem from 'bootstrap-vue/es/components/dropdown/dropdown-item'
-import bDropdownHeader from 'bootstrap-vue/es/components/dropdown/dropdown-header'
-import bDropdownDivider from 'bootstrap-vue/es/components/dropdown/dropdown-divider'
 
 import 'perfect-scrollbar/css/perfect-scrollbar.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'ic-crud-dropdown',
   components: {
     IcFormly,
     InfiniteLoading,
-    bModal,
-    bButton,
-    bDropdown,
-    bDropdownItem,
-    bDropdownHeader,
-    bDropdownDivider,
   },
   mixins: [texts],
   props: {
