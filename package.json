@@ -4,7 +4,7 @@
   "description": "This component renders a dropdown with search and CRUD",
   "author": "Walker <walker@praiseweb.com.br>",
   "main": "dist/ic-crud-dropdown.min.js",
-  "license": "MIT",
+  "license": "apache 2.0",
   "scripts": {
     "lint": "eslint src/**/*.vue",
     "build": "poi build --format cjs",
