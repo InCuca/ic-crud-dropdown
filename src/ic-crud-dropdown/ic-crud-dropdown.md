@@ -1,3 +1,25 @@
-Put here the ic-crud-dropdown isolated usage instructions
+This component renders a dropdown with search and CRUD
+Example:
 
-    <ic-crud-dropdown text="Hello World!"></ic-crud-dropdown>
+```jsx
+const fields = [
+ {key: 'name', type: 'input'},
+ {key: 'season', type: 'input'},
+ {key: 'channel', type: 'select', options: ['CBS', 'USA']},
+]
+
+let series = [
+ { id: 's0', name: 'The Big Bang Theory', season: 1, channel: 'CBS'},
+ { id: 's1', name: 'Suits', season: 3, channel: 'USA'},
+]
+
+<ic-crud-dropdown
+     :items="series"
+     :formlyEditFields="fields"
+     :formlyAddFields="fields" />
+```
+
+Dependencies (add them manually):
+- [Bootstrap Vue](https://github.com/bootstrap-vue/bootstrap-vue/)
+- [Bootstrap 4](http://getbootstrap.com/)
+- [FontAwesome](http://fontawesome.io/)
