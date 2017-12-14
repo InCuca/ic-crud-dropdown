@@ -12,6 +12,7 @@ $ npm run build
 
 ```js
 import IcCrudDropdown from 'dist/ic-crud-dropdown';
+import 'ic-crud-dropdown/dist/ic-crud-dropdown.min.css';
 
 Vue.component('ic-crud-dropdown', IcCrudDropdown);
 ```
