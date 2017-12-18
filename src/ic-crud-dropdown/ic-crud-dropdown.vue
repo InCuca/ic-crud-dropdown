@@ -279,9 +279,9 @@ export default {
       };
 
       /**
-       * Search event with the searched entry, call loaded to
+       * Load more event with the searched entry, call loaded to
        * inform the component that elements are already loaded
-       * @event search
+       * @event load-more
        * @type {{search: string, loaded: function}}
        */
       this.$emit('load-more', $state, 200);
