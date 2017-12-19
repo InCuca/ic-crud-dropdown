@@ -26,10 +26,6 @@ import IcCrudDropdown from 'ic-crud-dropdown.vue';
 Vue.component('ic-crud-dropdown', IcCrudDropdown);
 ```
 
-```html
-<{{name}} text="Hello World!"></{{name}}>
-```
-
 ### ES6 Modules / CommonJS
 
 ```js
@@ -39,15 +35,9 @@ import 'ic-crud-dropdown/cjs/ic-crud-dropdown.min.css';
 Vue.component('ic-crud-dropdown', IcCrudDropdown);
 ```
 
-```html
-<{{name}} text="Hello World!"></{{name}}>
-```
-
 ### UMD
 
 ```html
-<{{name}} text="Hello World!"></{{name}}>
-
 <script src="https://unpkg.com/vue" charset="utf-8"></script>
 <script src="./umd/ic-crud-dropdown.min.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="./umd/ic-crud-dropdown.min.css">
