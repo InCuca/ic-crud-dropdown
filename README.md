@@ -2,42 +2,6 @@
 
 > This component renders a dropdown with search and CRUD
 
-# Usage
-
-## ES6 Modules / CommonJS
-
-```bash
-$ npm run build
-```
-
-```js
-import IcCrudDropdown from 'dist/ic-crud-dropdown';
-import 'ic-crud-dropdown/dist/ic-crud-dropdown.min.css';
-
-Vue.component('ic-crud-dropdown', IcCrudDropdown);
-```
-
-```html
-<ic-crud-dropdown text="Hello World!"></ic-crud-dropdown>
-```
-
-## UMD
-
-```bash
-$ npm run build:umd
-```
-
-```html
-<ic-crud-dropdown text="Hello World!"></ic-crud-dropdown>
-
-<script src="https://unpkg.com/vue" charset="utf-8"></script>
-<script src="./dist/ic-crud-dropdown.min.js" charset="utf-8"></script>
-
-<script type="text/javascript">
-  Vue.component('ic-crud-dropdown', window.IcCrudDropdown);
-</script>
-```
-
 ## Installation
 
 ### Using yarn
@@ -51,6 +15,51 @@ $ npm run build:umd
 ## Demo and Docs
 
 `npm run serve`
+
+## Usage
+
+### With [vue-Loader](https://github.com/vuejs/vue-loader) or [vueify](https://github.com/vuejs/vueify)
+
+```js
+import IcCrudDropdown from 'ic-crud-dropdown.vue';
+
+Vue.component('ic-crud-dropdown', IcCrudDropdown);
+```
+
+```html
+<{{name}} text="Hello World!"></{{name}}>
+```
+
+### ES6 Modules / CommonJS
+
+```js
+import IcCrudDropdown from 'ic-crud-dropdown/cjs/ic-crud-dropdown.min.js';
+import 'ic-crud-dropdown/cjs/ic-crud-dropdown.min.css';
+
+Vue.component('ic-crud-dropdown', IcCrudDropdown);
+```
+
+```html
+<{{name}} text="Hello World!"></{{name}}>
+```
+
+### UMD
+
+```html
+<{{name}} text="Hello World!"></{{name}}>
+
+<script src="https://unpkg.com/vue" charset="utf-8"></script>
+<script src="./umd/ic-crud-dropdown.min.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="./umd/ic-crud-dropdown.min.css">
+
+<script type="text/javascript">
+  Vue.component('ic-crud-dropdown', window.IcCrudDropdown);
+</script>
+```
+
+## Build
+
+Build configuration is located in the `poi.config.js` file, to build just run: `npm run build`, it will build to `cjs` and `umd` directories.
 
 ## Tests
 

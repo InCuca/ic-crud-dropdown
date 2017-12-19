@@ -3,12 +3,11 @@
   "version": "0.0.2",
   "description": "This component renders a dropdown with search and CRUD",
   "author": "Walker <walker@praiseweb.com.br>",
-  "main": "dist/ic-crud-dropdown.min.js",
+  "main": "src/ic-crud-dropdown/ic-crud-dropdown.vue",
   "license": "apache 2.0",
   "scripts": {
     "lint": "eslint src/**/*.vue",
-    "build": "poi build --format cjs",
-    "build:umd": "poi build --format umd",
+    "build": "poi build --format cjs --dist cjs; poi build --format umd --dist umd",
     "build:doc": "vue-styleguidist build",
     "serve": "vue-styleguidist server",
     "test": "poi test",
@@ -20,7 +19,8 @@
     "component"
   ],
   "files": [
-    "dist/"
+    "umd/",
+    "cjs/"
   ],
   "dependencies": {
     "debounce": "^1.1.0",
