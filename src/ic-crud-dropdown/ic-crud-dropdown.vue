@@ -240,9 +240,11 @@ export default {
     items: debounce(function(newItems) {
       const lastItem = newItems[newItems.length - 1];
       if (!lastItem) return;
-      const item = this
-        .$refs['dropdownItem' + this.getItemId(lastItem)];
-      item.$el.scrollIntoView();
+      const refs = this.$refs['dropdownItem' + this.getItemId(lastItem)]
+      if (!refs) return;
+      const el = refs[0];
+      if (!el) return;
+      el.scrollIntoView();
     }, 200),
   },
   mounted() {
