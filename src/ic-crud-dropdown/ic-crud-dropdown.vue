@@ -235,17 +235,17 @@ export default {
   },
   watch: {
     /**
-     * Scroll into view last of the added items, whenever it changes
+     * TODO: Scroll into wrapper last of the added items, whenever it changes
      */
-    items: debounce(function(newItems) {
-      const lastItem = newItems[newItems.length - 1];
-      if (!lastItem) return;
-      const refs = this.$refs['dropdownItem' + this.getItemId(lastItem)]
-      if (!refs) return;
-      const el = refs[0];
-      if (!el) return;
-      el.scrollIntoView();
-    }, 200),
+    // items: debounce(function(newItems) {
+    //   const lastItem = newItems[newItems.length - 1];
+    //   if (!lastItem) return;
+    //   const refs = this.$refs['dropdownItem' + this.getItemId(lastItem)]
+    //   if (!refs) return;
+    //   const el = refs[0];
+    //   if (!el) return;
+    //   el.scrollIntoView();
+    // }, 200),
   },
   mounted() {
     this.ps = new PerfectScrollbar(this.$refs.selectItems);
