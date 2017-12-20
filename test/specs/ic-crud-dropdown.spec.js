@@ -55,6 +55,10 @@ describe('ic-crud-dropdown.vue', () => {
       vm.searchText = typedTerm;
       vm.onInfiniteScroll({ loaded: loadedCallback });
     })
+
+    it.skip('should emit `search` with null when dropdown opens', () => {
+      // TODO: implement test
+    })
   });
 
   describe('dropdown item', () => {
