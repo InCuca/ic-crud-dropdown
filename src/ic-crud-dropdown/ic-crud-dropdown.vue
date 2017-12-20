@@ -62,7 +62,7 @@
       :title="txtSingleEntitityName"
       size="lg">
       <!-- @slot For custom add modal, when using it, all formly options are ignored -->
-      <slot name="addModal">0
+      <slot name="addModal">
         <!-- @slot Content before the form the form in modals -->
         <slot name="pre-form"></slot>
         <ic-formly
