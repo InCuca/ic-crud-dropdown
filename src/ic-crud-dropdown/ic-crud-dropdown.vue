@@ -25,6 +25,7 @@
         :style="{'max-height': listHeight + 'px'}">
         <b-dropdown-item
           v-for="item in items"
+          :ref="'dropdownItem' + getItemId(item)"
           :key="getItemId(item)"
           @focus="focusedItem = item"
           @click="onDropdownItemClick(item)">
@@ -231,6 +232,18 @@ export default {
       if (this.selectedItem) return this.getItemTitle(this.selectedItem);
       return this.txtPluralEntitityName;
     }
+  },
+  watch: {
+    /**
+     * Scroll into view last of the added items, whenever it changes
+     */
+    items: debounce(function(newItems) {
+      const lastItem = newItems[newItems.length - 1];
+      if (!lastItem) return;
+      const item = this
+        .$refs['dropdownItem' + this.getItemId(lastItem)];
+      item.$el.scrollIntoView();
+    }, 200),
   },
   mounted() {
     this.ps = new PerfectScrollbar(this.$refs.selectItems);
