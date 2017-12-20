@@ -3,7 +3,8 @@
     <b-dropdown
       class="iccd-select"
       variant="link"
-      ref="dropdown">
+      ref="dropdown"
+      :right="right">
       <template slot="button-content">
         <i :class="iconClass"></i>
         <span class="iccd-select-entity">{{ txtDropdown }}</span>
@@ -124,6 +125,9 @@ import PerfectScrollbar from 'perfect-scrollbar'
 
 import 'perfect-scrollbar/css/perfect-scrollbar.css'
 
+
+const foo = 'bar'
+
 export default {
   name: 'ic-crud-dropdown',
   components: {
@@ -186,7 +190,15 @@ export default {
       type: Number,
       default: 200
     },
+    /**
+     * If enabled, the dropdown be align to right border of the button
+     */
+    right: {
+      type: Boolean,
+      default: false
+    }
   },
+
   data() {
     return {
       /**
