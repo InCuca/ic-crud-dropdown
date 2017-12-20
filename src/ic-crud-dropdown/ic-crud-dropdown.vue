@@ -4,7 +4,8 @@
       class="iccd-select"
       variant="link"
       ref="dropdown"
-      :right="right">
+      :right="right"
+      @shown="onDropdownShown">
       <template slot="button-content">
         <i :class="iconClass"></i>
         <span class="iccd-select-entity">{{ txtDropdown }}</span>
@@ -290,11 +291,14 @@ export default {
     onSearchInput: debounce(function(typedTerm) {
       /**
        * Search event with the searched entry
-       * @event search
+       * @event search the searched term, null when the user opens the dropdown
        * @type {string}
        */
       this.$emit('search', typedTerm);
     }, 200),
+    onDropdownShown() {
+      this.$emit('search', null);
+    },
     onInfiniteScroll: debounce(function($state) {
       $state.search = this.searchText;
 
