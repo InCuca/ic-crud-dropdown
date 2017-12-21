@@ -346,98 +346,115 @@ export default {
   display: flex;
   align-items: center;
   cursor: pointer;
-}
+  color: $secondary;
 
-.iccd-select .iccd-select-entity {
-  margin-left: 10px;
-  margin-right: 10px;
-}
+  .iccd-select-entity {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
-.iccd-select .iccd-select-search {
-  position: relative;
-}
+  .iccd-select-search {
+    position: relative;
 
-.iccd-select .iccd-select-search input {
-  padding-right: 2em;
-}
+    input {
+    padding-right: 2em;
+    }
 
-.iccd-select .iccd-select-search .fa {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  right: $dropdown-item-padding-x;
-  bottom: 0;
-  left: auto;
-  pointer-events: none;
-  font-size: 1.143em;
-}
+    .fa {
+      &:before {
+        display: block;
+        padding: $input-btn-padding-y $input-btn-padding-x;
+      }
 
-.iccd-select .iccd-select-search .fa:before {
-  display: block;
-  padding: $input-btn-padding-y $input-btn-padding-x;
-}
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: $dropdown-item-padding-x;
+      bottom: 0;
+      left: auto;
+      pointer-events: none;
+      font-size: 1.143em;
+    }
+  }
 
-.iccd-select .iccd-select-items {
-  position: relative;
-  overflow-y: auto;
-}
+  .iccd-select-items {
+    position: relative;
+    overflow-y: auto;
 
-.iccd-select .iccd-select-item_title {
-  flex: .8;
-}
+    .iccd-select-item_title {
+      flex: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
 
-.iccd-select .iccd-select-edit_button,
-.iccd-select .iccd-select-trash_button {
-  font-size: 1.143em;
-}
+  .iccd-select-edit_button,
+  .iccd-select-trash_button {
+    margin-left: .6em;
+    font-size: 1.143em;
+    color: $primary;
 
-.iccd-select .iccd-select-edit_button {
-  color: $primary;
-}
+    &:hover {
+      transform: scale(1.14);
+      transition: transform .1s ease-in-out;
+      opacity: .8;
+    }
 
-.iccd-select .iccd-select-trash_button {
-  color: $danger;
-}
-
-.iccd-select .iccd-select-edit_button:hover,
-.iccd-select .iccd-select-trash_button:hover {
-  transform: scale(1.1);
-  transition: transform .2s ease-in-out;
-  opacity: .8;
-}
-
-.iccd-select .iccd-select-edit_button .fa {
-  line-height: inherit;
+    .fa {
+      line-height: inherit;
+    }
+  }
 }
 
 /* Override Child Component CSS */
-.iccd-select /deep/ .btn-link {
-  cursor: pointer;
-  width: 100%;
-  color: $secondary;
+.iccd-select {
+  &.show /deep/ .dropdown-toggle:after {
+    transform: rotateX(180deg);
+  }
+
+  /deep/ .dropdown-toggle:after {
+    transition: transform .2s ease-in-out;
+  }
+
+  /deep/ .btn-link:hover {
+    text-decoration: none;
+    opacity: .8;
+  }
+
+  /deep/ .btn-link {
+    cursor: pointer;
+    width: 100%;
+    color: inherit;
+  }
 }
 
-.iccd-select /deep/ .btn-link:hover {
-  text-decoration: none;
-  opacity: .8;
-}
+.iccd-select /deep/ .dropdown-menu {
+  color: inherit;
+ 
+  .btn-link {
+    color: $primary;
+  }
 
-.iccd-select /deep/ .dropdown-toggle:after {
-  transition: transform .2s ease-in-out;
-}
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - #{$dropdown-item-padding-x} * 2);
+    margin: $dropdown-item-padding-y $dropdown-item-padding-x;
+    line-height: 2;
+    color: inherit;
 
-.iccd-select.show /deep/ .dropdown-toggle:after {
-  transform: rotateX(180deg);
-}
+    &:hover,
+    &:focus {
+      background: transparent;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
 
-.iccd-select /deep/ .dropdown-menu .btn-link {
-  color: $primary;
-}
-
-.iccd-select /deep/ .dropdown-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    &:focus {
+      outline: solid 2px $primary;
+    }
+  }
 }
 </style>
