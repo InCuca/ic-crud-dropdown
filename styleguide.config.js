@@ -44,6 +44,7 @@ module.exports = {
       beforeCreate: function() {
         const Vue = require('vue').default;
         Vue.use(require('bootstrap-vue/dist/bootstrap-vue.js'));
+        Vue.use(require('ic-formly/cjs/ic-formly.min.js').default)
       }
     }
   ]

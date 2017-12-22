@@ -4,6 +4,10 @@
 
 ## Installation
 
+Dependencies (Should be added manually):
+- [bootstrap-vue](https://bootstrap-vue.js.org/)
+- [ic-formly](https://github.com/InCuca/ic-formly)
+
 ### Using yarn
 
 `yarn add ic-crud-dropdown`

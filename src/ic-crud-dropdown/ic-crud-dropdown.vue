@@ -119,7 +119,6 @@
 </template>
 
 <script>
-import IcFormly from 'ic-formly/cjs/ic-formly.min.js'
 import texts from './text-props.js'
 import debounce from 'debounce'
 import InfiniteLoading from 'vue-infinite-loading'
@@ -133,7 +132,6 @@ const foo = 'bar'
 export default {
   name: 'ic-crud-dropdown',
   components: {
-    IcFormly,
     InfiniteLoading,
   },
   mixins: [texts],
@@ -453,7 +451,7 @@ export default {
 
 .iccd-select /deep/ .dropdown-menu {
   color: inherit;
- 
+
   .btn-link {
     color: $primary;
   }
