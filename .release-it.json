@@ -5,6 +5,5 @@
   "github": {
     "release": true
   },
-  "increment": "conventional:angular",
   "buildCommand": "npm run build"
 }
