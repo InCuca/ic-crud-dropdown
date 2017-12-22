@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
+import IcFormly from 'ic-formly/cjs/ic-formly.min.js'
 import Dropdown from '@/ic-crud-dropdown/ic-crud-dropdown.vue'
 import { showModal, clickOk } from '../helpers/modals'
 import { submitForm } from '../helpers/formly'
@@ -7,6 +8,7 @@ import { click } from '../helpers/native'
 import { companies, companyFields } from '../mocks/company'
 
 Vue.use(BootstrapVue)
+Vue.use(IcFormly)
 
 describe('ic-crud-dropdown.vue', () => {
   const propsData = {
