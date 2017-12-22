@@ -10,7 +10,7 @@
         <i :class="iconClass"></i>
         <span class="iccd-select-entity">{{ txtDropdown }}</span>
       </template>
-      <b-dropdown-header class="iccd-select-search">
+      <b-dropdown-header class="iccd-select-search" v-if="enableSearch">
         <b-form-input
           type="text"
           :placeholder="txtSearchField"
@@ -49,7 +49,7 @@
             <i class="fa fa-trash"></i>
           </span>
         </b-dropdown-item>
-        <infinite-loading @infinite="onInfiniteScroll" />
+        <infinite-loading v-if="enablePagination" @infinite="onInfiniteScroll" />
       </div>
       <b-dropdown-divider></b-dropdown-divider>
       <b-button variant="link" @click="onDropdownAddClick">
@@ -119,7 +119,7 @@
 </template>
 
 <script>
-import IcFormly from 'ic-formly'
+import IcFormly from 'ic-formly/cjs/ic-formly.min.js'
 import texts from './text-props.js'
 import debounce from 'debounce'
 import InfiniteLoading from 'vue-infinite-loading'
@@ -198,7 +198,23 @@ export default {
     right: {
       type: Boolean,
       default: false
-    }
+    },
+    /**
+     * If enabled the dropdown will show a search field
+     * use search and loaded events to handle the search
+     */
+    enableSearch: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * If enabled the dropdown will trigger load-more event
+     * when scroll reaches at end
+     */
+    enablePagination: {
+      type: Boolean,
+      default: false
+    },
   },
 
   data() {
@@ -291,7 +307,8 @@ export default {
     onSearchInput: debounce(function(typedTerm) {
       /**
        * Search event with the searched entry
-       * @event search the searched term, null when the user opens the dropdown
+       * the searched term null when the user opens the dropdown
+       * @event search
        * @type {string}
        */
       this.$emit('search', typedTerm);
@@ -319,6 +336,11 @@ export default {
     }),
     onTrashClick(item) {
       this.$refs.deleteModal.$on('ok', () => {
+      /**
+       * Delete event with the deleted item and id
+       * @event delete
+       * @type {{item: Object, id: Object}}
+       */
         this.$emit('delete', {item, id: this.getItemId(item)});
         this.$refs.deleteModal.$off('ok');
       });
