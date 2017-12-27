@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
-import IcFormly from 'ic-formly/cjs/ic-formly.min.js'
+import IcFormly from 'ic-formly'
 import Dropdown from '@/ic-crud-dropdown/ic-crud-dropdown.vue'
 import { showModal, clickOk } from '../helpers/modals'
 import { submitForm } from '../helpers/formly'
