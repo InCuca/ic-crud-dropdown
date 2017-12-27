@@ -13,8 +13,7 @@ module.exports = {
   html: false,
   webpack: function(config) {
     config.externals = {
-      'ic-formly': 'ic-formly',
-      'bootstrap-vue': 'bootstrap-vue'
+      'ic-formly': 'IcFormly'
     }
     return config;
   },
@@ -23,6 +22,10 @@ module.exports = {
       files: ['./test/specs/**.spec.js'],
       browsers: ['PhantomJS'],
       frameworks: ['mocha', 'chai', 'phantomjs-shim'],
+      extendWebpack: function (config) {
+        config.externals = {}
+        return config;
+      },
     })
   ],
   moduleName: 'IcCrudDropdown'
