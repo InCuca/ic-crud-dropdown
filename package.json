@@ -1,6 +1,6 @@
 {
   "name": "ic-crud-dropdown",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "This component renders a dropdown with search and CRUD",
   "author": "Walker <walker@praiseweb.com.br>",
   "main": "src/ic-crud-dropdown/ic-crud-dropdown.vue",
