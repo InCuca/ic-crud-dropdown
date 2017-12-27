@@ -123,11 +123,12 @@ import texts from './text-props.js'
 import debounce from 'debounce'
 import InfiniteLoading from 'vue-infinite-loading'
 import PerfectScrollbar from 'perfect-scrollbar'
-
 import 'perfect-scrollbar/css/perfect-scrollbar.css'
+import IcFormly from 'ic-formly'
+import BootstrapVue from 'bootstrap-vue'
 
-
-const foo = 'bar'
+Vue.use(IcFormly)
+Vue.use(BootstrapVue)
 
 export default {
   name: 'ic-crud-dropdown',

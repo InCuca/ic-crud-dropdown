@@ -11,6 +11,13 @@ module.exports = {
   },
   sourceMap: true,
   html: false,
+  webpack: function(config) {
+    config.externals = {
+      'ic-formly': 'ic-formly',
+      'bootstrap-vue': 'bootstrap-vue'
+    }
+    return config;
+  },
   presets: [
     presetKarma({
       files: ['./test/specs/**.spec.js'],
