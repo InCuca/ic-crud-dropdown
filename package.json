@@ -1,6 +1,6 @@
 {
   "name": "ic-crud-dropdown",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "This component renders a dropdown with search and CRUD",
   "author": "Walker <walker@praiseweb.com.br>",
   "main": "dist/ic-crud-dropdown.min.js",
