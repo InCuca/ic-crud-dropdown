@@ -13,7 +13,7 @@ module.exports = {
   html: false,
   webpack: function(config) {
     config.externals = {
-      'ic-formly': 'IcFormly'
+      'IcFormly': 'ic-formly'
     }
     return config;
   },

@@ -33,8 +33,8 @@ Vue.component('ic-crud-dropdown', IcCrudDropdown);
 ### ES6 Modules / CommonJS
 
 ```js
-import IcCrudDropdown from 'ic-crud-dropdown/cjs/ic-crud-dropdown.min.js';
-import 'ic-crud-dropdown/cjs/ic-crud-dropdown.min.css';
+import IcCrudDropdown from 'ic-crud-dropdown';
+import 'ic-crud-dropdown/dist/ic-crud-dropdown.min.css';
 
 Vue.component('ic-crud-dropdown', IcCrudDropdown);
 ```
@@ -43,8 +43,8 @@ Vue.component('ic-crud-dropdown', IcCrudDropdown);
 
 ```html
 <script src="https://unpkg.com/vue" charset="utf-8"></script>
-<script src="./umd/ic-crud-dropdown.min.js" charset="utf-8"></script>
-<link rel="stylesheet" type="text/css" href="./umd/ic-crud-dropdown.min.css">
+<script src="./dist/umd/ic-crud-dropdown.min.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="./dist/umd/ic-crud-dropdown.min.css">
 
 <script type="text/javascript">
   Vue.component('ic-crud-dropdown', window.IcCrudDropdown);
