@@ -94,7 +94,6 @@
         <slot name="pre-form"></slot>
         <ic-formly
           ref="editForm"
-          :value="selectedItem || {}"
           :fields="formlyEditFields"
           @input="onEditFormSubmission"/>
         <slot name="post-form"></slot>
@@ -278,6 +277,7 @@ export default {
       this.$refs.addModal.show();
     },
     onDropdownEditClick(item) {
+      this.$refs.editForm.value = item
       this.$refs.editModal.show();
     },
     onEditFormSubmission(item) {
