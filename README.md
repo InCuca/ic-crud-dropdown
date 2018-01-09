@@ -1,4 +1,5 @@
 # ic-crud-dropdown
+[![Travis](https://img.shields.io/travis/InCuca/ic-crud-dropdown/master.svg)](https://travis-ci.org/InCuca/ic-crud-dropdown/branches)
 
 > This component renders a dropdown with search and CRUD
 
