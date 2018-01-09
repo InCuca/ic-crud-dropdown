@@ -4,17 +4,20 @@ new Vue({
     <div :style="{display: 'flex', justifyContent: 'space-around'}">
       <ic-crud-dropdown
           enable-search
+          :selectedItem="selectedShow"
           :items="foundShows"
           :formlyEditFields="fields"
           :formlyAddFields="fields"
           txtSingleEntitityName="TV Show"
           txtPluralEntitityName="TV Shows"
           @search="onSearch"
+          @select="selectedShow = $event.item"
           />
        <code><pre>{{ JSON.stringify(shows, null, 4) }}</pre></code>
     </div>
   `,
   data: {
+    selectedShow: null,
     fields: [
       {
         key: 'name',

@@ -3,6 +3,7 @@ new Vue({
   template: `
     <div :style="{display: 'flex', justifyContent: 'space-around'}">
       <ic-crud-dropdown
+          :selectedItem="selectedShow"
           :items="shows"
           :formlyEditFields="fields"
           :formlyAddFields="fields"

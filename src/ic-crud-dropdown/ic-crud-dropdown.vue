@@ -94,6 +94,7 @@
         <slot name="pre-form"></slot>
         <ic-formly
           ref="editForm"
+          :value="editingItem || {}"
           :fields="formlyEditFields"
           @input="onEditFormSubmission"/>
         <slot name="post-form"></slot>
@@ -211,14 +212,17 @@ export default {
       type: Boolean,
       default: false
     },
+    /**
+       * Current selected item
+       */
+    selectedItem: {
+      type: Object,
+      default: null
+    }
   },
 
   data() {
     return {
-      /**
-       * Current selected item
-       */
-      selectedItem: null,
       /**
        * Current focused item
        */
@@ -234,7 +238,11 @@ export default {
       /**
        * PerfectScrollbar Instance
        */
-      ps: null
+      ps: null,
+      /**
+       * It will be used by editForm with current clicked item
+       */
+      editingItem: null
     }
   },
   computed: {
@@ -265,9 +273,8 @@ export default {
   },
   methods: {
     onDropdownItemClick(item) {
-      this.selectedItem = item;
       /**
-       * Select event with the selected item
+       * Select event with the selected item, use this event to update selectedItem prop
        * @event select
        * @type {{item: object, id: object}}
        */
@@ -277,7 +284,7 @@ export default {
       this.$refs.addModal.show();
     },
     onDropdownEditClick(item) {
-      this.$refs.editForm.value = item
+      this.editingItem = item
       this.$refs.editModal.show();
     },
     onEditFormSubmission(item) {
