@@ -278,7 +278,6 @@ export default {
       this.$refs.addModal.show();
     },
     onDropdownEditClick(item) {
-      this.selectedItem = item;
       this.$refs.editModal.show();
     },
     onEditFormSubmission(item) {
