@@ -146,7 +146,12 @@ describe('ic-crud-dropdown.vue', () => {
     })
 
     it('should emit `update` `onEditFormSubmission`', () => {
-      vm.selectedItem = companies[0];
+      vm = new Constructor({
+        propsData: {...propsData, selectedItem: companies[0]},
+      }).$mount();
+
+      // Modal opens and set editingItem
+      vm.editingItem = companies[0]
 
       const whenUpdateEvent = new Promise(resolve => {
         vm.$on('update', ({ item, id }) => {
