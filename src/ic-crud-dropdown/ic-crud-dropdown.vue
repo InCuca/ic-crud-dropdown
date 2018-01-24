@@ -77,7 +77,7 @@
       <template slot="modal-footer">
         <b-button
           variant="success"
-          @click="$refs.addForm.submit()">
+          @click="onAddModalSaveClick">
           <i class="fa fa-check"></i>
           {{ txtSaveButton }}
         </b-button>
@@ -102,7 +102,7 @@
       <template slot="modal-footer">
         <b-button
           variant="success"
-          @click="$refs.editForm.submit()">
+          @click="onEditModalSaveClick">
           <i class="fa fa-check"></i>
           {{ txtSaveButton }}
         </b-button>
@@ -287,6 +287,13 @@ export default {
       this.editingItem = item
       this.$refs.editModal.show();
     },
+    onEditModalSaveClick() {
+      /**
+       * When user click in save button on the edit modal
+       */
+      this.$emit('editModal-save-click')
+      this.$refs.editForm.submit()
+    },
     onEditFormSubmission(item) {
       this.$refs.dropdown.hide();
       this.$refs.editModal.hide();
@@ -296,6 +303,13 @@ export default {
        * @type {{item: object, id: object}}
        */
       this.$emit('update', {item, id: this.getItemId(item)});
+    },
+    onAddModalSaveClick() {
+      /**
+       * When user click in save button on the add modal
+       */
+      this.$emit('addModal-save-click')
+      this.$refs.addForm.submit()
     },
     onAddFormSubmission(item) {
       this.$refs.dropdown.hide();
