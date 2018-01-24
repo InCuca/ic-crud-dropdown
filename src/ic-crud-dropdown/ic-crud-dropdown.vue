@@ -172,7 +172,7 @@ export default {
      */
     formlyEditFields: {
       type: Array,
-      required: true
+      default: () => ([])
     },
     /**
      * The mapping of the entitity fields to inputs in the adding form
@@ -180,7 +180,7 @@ export default {
      */
     formlyAddFields: {
       type: Array,
-      required: true
+      default: () => ([])
     },
     /**
      * The list maximum height
