@@ -63,21 +63,17 @@
       ref="addModal"
       :title="txtSingleEntitityName"
       size="lg">
-      <!-- @slot For custom add modal, when using it, all formly options are ignored -->
-      <slot name="addModal">
-        <!-- @slot Content before the form the form in modals -->
-        <slot name="pre-form"></slot>
-        <ic-formly
-          ref="addForm"
-          :fields="formlyAddFields"
-          @input="onAddFormSubmission"/>
-        <!-- @slot Content after the form in modals -->
-        <slot name="post-form"></slot>
-      </slot>
+      <!-- @slot Content before the form the form in modals -->
+      <slot name="pre-form"></slot>
+      <ic-formly
+        ref="addForm"
+        :fields="formlyAddFields"
+        @input="onAddFormSubmission"/>
+      <slot name="post-form"></slot>
       <template slot="modal-footer">
         <b-button
           variant="success"
-          @click="onAddModalSaveClick">
+          @click="this.$refs.addForm.submit()">
           <i class="fa fa-check"></i>
           {{ txtSaveButton }}
         </b-button>
@@ -89,20 +85,17 @@
       ref="editModal"
       :title="txtSingleEntitityName"
       size="lg">
-      <!-- @slot For custom edit modal, when using it, all formly options are ignored -->
-      <slot name="editModal">
-        <slot name="pre-form"></slot>
-        <ic-formly
-          ref="editForm"
-          :value="editingItem || {}"
-          :fields="formlyEditFields"
-          @input="onEditFormSubmission"/>
-        <slot name="post-form"></slot>
-      </slot>
+      <slot name="pre-form"></slot>
+      <ic-formly
+        ref="editForm"
+        :value="editingItem || {}"
+        :fields="formlyEditFields"
+        @input="onEditFormSubmission"/>
+      <slot name="post-form"></slot>
       <template slot="modal-footer">
         <b-button
           variant="success"
-          @click="onEditModalSaveClick">
+          @click="this.$refs.editForm.submit()">
           <i class="fa fa-check"></i>
           {{ txtSaveButton }}
         </b-button>
@@ -113,7 +106,7 @@
     <b-modal
       ref="deleteModal"
       :title="txtTrashItem">
-      <slot name="deleteModal">Are you sure to delete <span class="trashItemName">this item</span>?</slot>
+      Are you sure to delete <span class="trashItemName">this item</span>?
     </b-modal>
   </div>
 </template>
@@ -287,13 +280,6 @@ export default {
       this.editingItem = item
       this.$refs.editModal.show();
     },
-    onEditModalSaveClick() {
-      /**
-       * When user click in save button on the edit modal
-       */
-      this.$emit('editModal-save-click')
-      this.$refs.editForm.submit()
-    },
     onEditFormSubmission(item) {
       this.$refs.dropdown.hide();
       this.$refs.editModal.hide();
@@ -303,13 +289,6 @@ export default {
        * @type {{item: object, id: object}}
        */
       this.$emit('update', {item, id: this.getItemId(item)});
-    },
-    onAddModalSaveClick() {
-      /**
-       * When user click in save button on the add modal
-       */
-      this.$emit('addModal-save-click')
-      this.$refs.addForm.submit()
     },
     onAddFormSubmission(item) {
       this.$refs.dropdown.hide();
