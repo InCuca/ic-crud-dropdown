@@ -1,3 +1,13 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/InCuca/ic-crud-dropdown/compare/v1.0.0...v1.0.1) (2018-01-25)
+
+
+### Bug Fixes
+
+* **component:** fix error $refs of null ([5efb247](https://github.com/InCuca/ic-crud-dropdown/commit/5efb247))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/InCuca/ic-crud-dropdown/compare/v0.7.1...v1.0.0) (2018-01-25)
 
