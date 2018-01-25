@@ -1,3 +1,31 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/InCuca/ic-crud-dropdown/compare/v0.7.1...v1.0.0) (2018-01-25)
+
+
+### Bug Fixes
+
+* **release-it:** add changelog file ([553828d](https://github.com/InCuca/ic-crud-dropdown/commit/553828d))
+* **styleguide:** fix console warnings ([8456a48](https://github.com/InCuca/ic-crud-dropdown/commit/8456a48))
+* **styleguide:** fix warning msgs ([b163a98](https://github.com/InCuca/ic-crud-dropdown/commit/b163a98))
+* **test:** fix onDropdownEditClick error ([8d188d5](https://github.com/InCuca/ic-crud-dropdown/commit/8d188d5))
+
+
+### Features
+
+* **component:** add custom modal example, add needed props and events ([9ee53d3](https://github.com/InCuca/ic-crud-dropdown/commit/9ee53d3))
+* **component:** add editModal and addModal save click events ([aa06d91](https://github.com/InCuca/ic-crud-dropdown/commit/aa06d91))
+* **component:** remove add, delete and edit modal slots ([cbfdc1e](https://github.com/InCuca/ic-crud-dropdown/commit/cbfdc1e))
+* **ic-crud-dropdown:** remove required from formly fields ([e77d7aa](https://github.com/InCuca/ic-crud-dropdown/commit/e77d7aa))
+* **release-it:** update config file ([1c13dce](https://github.com/InCuca/ic-crud-dropdown/commit/1c13dce))
+* **test:** add missing tests ([0acfa87](https://github.com/InCuca/ic-crud-dropdown/commit/0acfa87))
+
+
+### BREAKING CHANGES
+
+* **component:** editModal, deleteModal, addModal does not exists anymore
+
+
+
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/InCuca/ic-crud-dropdown/compare/0.7.0...0.7.1) (2018-01-09)
 
