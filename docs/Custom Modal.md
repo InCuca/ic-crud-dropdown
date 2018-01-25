@@ -1,29 +1,36 @@
 ```jsx
 new Vue({
   template: `
-    <div :style="{display: 'flex', justifyContent: 'space-around'}">
-      <ic-crud-dropdown
-          :selectedItem="selectedShow"
-          :items="shows"
-          txtSingleEntitityName="TV Show"
-          txtPluralEntitityName="TV Shows"
-          @create="onCreate"
-          @update="onUpdate"
-          @delete="onDelete"
-          @select="onSelect">
-          <div slot="editModal">
-            Customized Edit Modal
-          </div>
-          <div slot="addModal">
-            Customized Add Modal
-          </div>
-          <div slot="deleteModal">
-            Customized Delete Modal
-          </div>
-      </ic-crud-dropdown>
-       <code><pre>{{ JSON.stringify(shows, null, 4) }}</pre></code>
-       <code><pre>{{ JSON.stringify(selectedShow, null, 4) }}</pre></code>
-    </div>
+  <div id="customModals" :style="{display: 'flex', justifyContent: 'space-around'}">
+    <ic-crud-dropdown
+        txtSingleEntitityName="TV Show"
+        txtPluralEntitityName="TV Shows"
+        disable-modals
+        :selectedItem="selectedShow"
+        :items="shows"
+        @add-click="onAdd"
+        @edit-click="onEdit"
+        @trash-click="onTrash"
+        @select="onSelect"/>
+
+    <!-- ADD MODAL -->
+    <b-modal ref="addModal" @ok="onCreate">
+      <b-input v-model="inputText" />
+    </b-modal>
+
+    <!-- EDIT MODAL -->
+    <b-modal ref="editModal">
+      <b-input v-model="inputText" />
+    </b-modal>
+
+    <!-- DELETE MODAL -->
+    <b-modal ref="deleteModal">
+      Are you sure to delete?
+    </b-modal>
+
+    <code><pre>{{ JSON.stringify(shows, null, 4) }}</pre></code>
+    <code><pre>{{ JSON.stringify(selectedShow, null, 4) }}</pre></code>
+  </div>
   `,
   data: {
     fields: [
@@ -39,20 +46,43 @@ new Vue({
       { id: 's1', name: 'Suits'},
     ],
     selectedShow: null,
+    inputText: '',
   },
   methods: {
-    onCreate(event) {
-      this.shows.push(event);
+    onAdd() {
+      this.inputText = '';
+      this.$refs.addModal.show();
     },
-    onUpdate(event) {
-      const index = this.shows.indexOf(
-        this.shows.find(s => s.id === event.id)
+    onCreate() {
+      const id = 's' + Math.round(Math.random() * 1000)
+      this.shows.push({id, name: this.inputText});
+    },
+    onEdit({item}) {
+      this.inputText = item.name;
+      this.$refs.editModal.$off('ok');
+      this.$refs.editModal.$on('ok', () =>
+        this.onUpdate(item)
       );
-      this.shows.splice(index, 1, event.item);
+      this.$refs.editModal.show();
     },
-    onDelete(event) {
+    onUpdate(item) {
+      const newItem = {
+        id: item.id,
+        name: this.inputText
+      }
+      const index = this.shows.indexOf(item);
+      this.shows.splice(index, 1, newItem);
+    },
+    onTrash({item}) {
+      this.$refs.deleteModal.$off('ok');
+      this.$refs.deleteModal.$on('ok', () =>
+        this.onDelete(item)
+      );
+      this.$refs.deleteModal.show();
+    },
+    onDelete(item) {
       const index = this.shows.indexOf(
-        this.shows.find(s => s.id === event.id)
+        this.shows.find(s => s.id === item.id)
       );
       this.shows.splice(index, 1);
     },

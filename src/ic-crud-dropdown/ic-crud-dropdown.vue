@@ -34,8 +34,9 @@
             {{ getItemTitle(item) }}
           </span>
           <span
-            :style="{visibility: focusedItem === item?'visible':'hidden'}"
             class="iccd-select-edit_button"
+            v-if="!disableEdit"
+            :style="{visibility: focusedItem === item?'visible':'hidden'}"
             :title="txtEditItem">
             <i
               class="fa fa-pencil"
@@ -43,6 +44,7 @@
           </span>
           <span
             class="iccd-select-trash_button"
+            v-if="!disableDelete"
             :style="{visibility: focusedItem === item?'visible':'hidden'}"
             :title="txtTrashItem"
             @click="onTrashClick(item)">
@@ -51,18 +53,21 @@
         </b-dropdown-item>
         <infinite-loading v-if="enablePagination" @infinite="onInfiniteScroll" />
       </div>
-      <b-dropdown-divider></b-dropdown-divider>
-      <b-button variant="link" @click="onDropdownAddClick">
-        <i class="fa fa-plus"></i>
-        {{ txtAddItem }}
-      </b-button>
+      <template v-if="!disableAdd">
+        <b-dropdown-divider></b-dropdown-divider>
+        <b-button variant="link" @click="onDropdownAddClick">
+          <i class="fa fa-plus"></i>
+          {{ txtAddItem }}
+        </b-button>
+      </template>
     </b-dropdown>
 
     <!-- ADD MODAL -->
     <b-modal
       ref="addModal"
-      :title="txtSingleEntitityName"
-      size="lg">
+      size="lg"
+      v-if="!disableModals"
+      :title="txtSingleEntitityName">
       <!-- @slot Content before the form the form in modals -->
       <slot name="pre-form"></slot>
       <ic-formly
@@ -84,8 +89,9 @@
     <!-- EDIT MODAL -->
     <b-modal
       ref="editModal"
-      :title="txtSingleEntitityName"
-      size="lg">
+      size="lg"
+      v-if="!disableModals"
+      :title="txtSingleEntitityName">
       <slot name="pre-form"></slot>
       <ic-formly
         ref="editForm"
@@ -106,6 +112,7 @@
     <!-- DELETE MODAL -->
     <b-modal
       ref="deleteModal"
+      v-if="!disableModals"
       :title="txtTrashItem">
       Are you sure to delete <span class="trashItemName">this item</span>?
     </b-modal>
@@ -207,6 +214,34 @@ export default {
       default: false
     },
     /**
+     * If true, will disable edit button
+     */
+    disableEdit: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * If true, will disable add button
+     */
+    disableAdd: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * If true, will disable the delete button
+     */
+    disableDelete: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * If true, will disable internal forms and modals (you must handle the events)
+     */
+    disableModals: {
+      type: Boolean,
+      default: false
+    },
+    /**
        * Current selected item
        */
     selectedItem: {
@@ -275,11 +310,24 @@ export default {
       this.$emit('select', {item, id: this.getItemId(item)});
     },
     onDropdownAddClick() {
-      this.$refs.addModal.show();
+      /**
+       * When user click on add button
+       * @event add-click
+       */
+      this.$emit('add-click')
+      if (!this.disableModals)
+        this.$refs.addModal.show();
     },
     onDropdownEditClick(item) {
       this.editingItem = item
-      this.$refs.editModal.show();
+      /**
+       * When user click item edit
+       * @event edit-click
+       * @type {{item: Object, id: Object}}
+       */
+      this.$emit('edit-click', {item, id: this.getItemId(item)})
+      if (!this.disableModals)
+        this.$refs.editModal.show();
     },
     onEditFormSubmission(item) {
       this.$refs.dropdown.hide();
@@ -332,21 +380,30 @@ export default {
       this.$emit('load-more', $state, 200);
     }),
     onTrashClick(item) {
-      this.$refs.deleteModal.$on('ok', () => {
       /**
-       * Delete event with the deleted item and id
-       * @event delete
+       * When user click on trash item button
+       * @event trash-click
        * @type {{item: Object, id: Object}}
        */
-        this.$emit('delete', {item, id: this.getItemId(item)});
-        this.$refs.deleteModal.$off('ok');
-      });
+      this.$emit('trash-click', {item, id: this.getItemId(item)})
 
-      this.$refs.deleteModal.$el
-        .querySelector('.trashItemName')
-        .innerHTML = this.getItemTitle(item);
+      if (!this.disableModals) {
+        this.$refs.deleteModal.$on('ok', () => {
+        /**
+        * Delete event with the deleted item and id
+        * @event delete
+        * @type {{item: Object, id: Object}}
+        */
+          this.$emit('delete', {item, id: this.getItemId(item)});
+          this.$refs.deleteModal.$off('ok');
+        });
 
-      this.$refs.deleteModal.show();
+        this.$refs.deleteModal.$el
+          .querySelector('.trashItemName')
+          .innerHTML = this.getItemTitle(item);
+
+        this.$refs.deleteModal.show();
+      }
     }
   }
 }
