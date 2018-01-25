@@ -1,3 +1,42 @@
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/InCuca/ic-crud-dropdown/compare/0.7.0...0.7.1) (2018-01-09)
+
+
+### Bug Fixes
+
+* **component:** fix edit modal not showing object ([f3fb6ff](https://github.com/InCuca/ic-crud-dropdown/commit/f3fb6ff))
+* **tests:** fix update test ([5ebd5a1](https://github.com/InCuca/ic-crud-dropdown/commit/5ebd5a1))
+
+
+### Features
+
+* **component:** add selectedItem prop ([32b5517](https://github.com/InCuca/ic-crud-dropdown/commit/32b5517))
+
+
+### BREAKING CHANGES
+
+* **component:** the old selectedItem data has been removed and changed to a prop
+the prop is not updated inside of the component, but outside, by listening select event
+
+
+
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/InCuca/ic-crud-dropdown/compare/0.6.5...0.7.0) (2018-01-09)
+
+
+### Features
+
+* **build:** add conventional changelog ([59d68ae](https://github.com/InCuca/ic-crud-dropdown/commit/59d68ae))
+* **build:** add travis ([fa05779](https://github.com/InCuca/ic-crud-dropdown/commit/fa05779))
+* **component:** do not select item when click edit button ([bb07f24](https://github.com/InCuca/ic-crud-dropdown/commit/bb07f24))
+
+
+### BREAKING CHANGES
+
+* **component:** clicking edit buttom item now does not select the item
+
+
+
 <a name="0.6.5"></a>
 ## [0.6.5](https://github.com/InCuca/ic-crud-dropdown/compare/0.6.4...0.6.5) (2017-12-27)
 
