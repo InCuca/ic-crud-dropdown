@@ -79,7 +79,7 @@
       <template slot="modal-footer">
         <b-button
           variant="success"
-          @click="this.$refs.addForm.submit()">
+          @click="$refs.addForm.submit()">
           <i class="fa fa-check"></i>
           {{ txtSaveButton }}
         </b-button>
@@ -102,7 +102,7 @@
       <template slot="modal-footer">
         <b-button
           variant="success"
-          @click="this.$refs.editForm.submit()">
+          @click="$refs.editForm.submit()">
           <i class="fa fa-check"></i>
           {{ txtSaveButton }}
         </b-button>
