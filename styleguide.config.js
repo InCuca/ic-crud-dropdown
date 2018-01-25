@@ -1,3 +1,4 @@
+const Vue = require('vue').default;
 const loaders = require('vue-webpack-loaders');
 const glob = require('glob').sync;
 const basename = require('path').basename;
@@ -44,7 +45,6 @@ module.exports = {
   mixins: [
     {
       beforeCreate: function() {
-        const Vue = require('vue').default;
         Vue.use(bootstrapVue);
         Vue.use(icFormly)
       }
