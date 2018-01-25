@@ -8,6 +8,6 @@
   "buildCommand": "npm run build",
   "increment": "conventional:angular",
   "beforeChangelogCommand": "conventional-changelog -p angular -i CHANGELOG.md -s",
-  "changelogCommand": "conventional-changelog -p angular | tail -n +3",
+  "changelogCommand": "conventional-changelog -p angular -i CHANGELOG.md | tail -n +3",
   "safeBump": false
 }
