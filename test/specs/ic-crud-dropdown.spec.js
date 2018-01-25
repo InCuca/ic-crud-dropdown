@@ -29,6 +29,80 @@ describe('ic-crud-dropdown.vue', () => {
 
   afterEach(() => vm.$destroy())
 
+  describe('enable/disable features', () => {
+    describe('enableSearch behavior', () => {
+      it.skip('should not show search field when enableSearch is false', () => {
+        // TODO: implement test
+      })
+
+      it.skip('should show search field when enableSearch is true', () => {
+        // TODO: implement test
+      })
+    })
+
+    describe('enablePagination behavior', () => {
+      it.skip('should not show infinite-scrolling when pagination is false', () => {
+        // TODO: implement test
+      })
+
+      it.skip('should show infinite-scrolling when pagination is true', () => {
+        // TODO: implement test
+      })
+    })
+
+    describe('disableAdd behavior', () => {
+      it.skip('should not show add button when disableAdd is true', () => {
+        // TODO: implement test
+      })
+
+      it.skip('should show add button when disableAdd is false', () => {
+        // TODO: implement test
+      })
+    })
+
+    describe('disableEdit behavior', () => {
+      it.skip('should not show edit button when disableEdit is true', () => {
+        // TODO: implement test
+      })
+
+      it.skip('should show edit button when disableEdit is false', () => {
+        // TODO: implement test
+      })
+    })
+
+    describe('disableDelete behavior', () => {
+      it.skip('should not show delete button when disableDelete is true', () => {
+        // TODO: implement test
+      })
+
+      it.skip('should show delete button when disableDelete is false', () => {
+        // TODO: implement test
+      })
+    })
+
+    describe('disableModals behavior', () => {
+      it.skip('should not render modals when disableModals is true', () => {
+        // TODO: implement test
+      })
+
+      it.skip('should render modals when disableModals is true', () => {
+        // TODO: implement test
+      })
+
+      it.skip('should not show modal when onDropdownAddClick and disableModals is true', () => {
+        // TODO: implement test
+      })
+
+      it.skip('should not show modal when onDropdownEditClick and disableModals is true', () => {
+        // TODO: implement test
+      })
+
+      it.skip('should not show modal when onTrashClick and disableModals is true', () => {
+        // TODO: implement test
+      })
+    })
+  })
+
   describe('search', () => {
     it.skip('should emit `search` with the searched term', done => {
       // TODO: ERROR log of InfiniteLoading, the test is passing but with warnings
@@ -72,6 +146,18 @@ describe('ic-crud-dropdown.vue', () => {
         done();
       });
       vm.onDropdownItemClick(payload);
+    })
+
+    it.skip('should emit `add-click` when click in add button', () => {
+      // TODO: implement test
+    })
+
+    it.skip('should emit `edit-click` with the correct item', () => {
+      // TODO: implement test
+    })
+
+    it.skip('should emit `trash-click` with the correct item', () => {
+      // TODO: implement test
     })
   })
 
