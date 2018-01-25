@@ -1,6 +1,8 @@
 const loaders = require('vue-webpack-loaders');
 const glob = require('glob').sync;
 const basename = require('path').basename;
+const bootstrapVue = require('bootstrap-vue/dist/bootstrap-vue.js')
+const icFormly = require('ic-formly').default
 
 function getDocSections() {
   b = p => basename(p, '.md');
@@ -43,8 +45,8 @@ module.exports = {
     {
       beforeCreate: function() {
         const Vue = require('vue').default;
-        Vue.use(require('bootstrap-vue/dist/bootstrap-vue.js'));
-        Vue.use(require('ic-formly').default)
+        Vue.use(bootstrapVue);
+        Vue.use(icFormly)
       }
     }
   ]
