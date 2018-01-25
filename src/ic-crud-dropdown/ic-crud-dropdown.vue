@@ -69,6 +69,7 @@
         ref="addForm"
         :fields="formlyAddFields"
         @input="onAddFormSubmission"/>
+      <!-- @slot Content after the form the form in modals -->
       <slot name="post-form"></slot>
       <template slot="modal-footer">
         <b-button
