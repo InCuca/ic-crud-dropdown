@@ -121,7 +121,7 @@ describe('ic-crud-dropdown.vue', () => {
   describe('edit modal', () => {
     it('should open edit modal `onDropdownEditClick`', done => {
       vm.$refs.editModal.$on('show', () => done())
-      vm.onDropdownEditClick();
+      vm.onDropdownEditClick({id: 'thing', name: 'whatever'});
     })
 
     it('should close the edit modal `onEditFormSubmission` when validated', () => {
