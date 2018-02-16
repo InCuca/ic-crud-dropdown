@@ -17,21 +17,11 @@ Dependencies (Should be added manually):
 
 `npm i --save ic-crud-dropdown`
 
-## Demo and Docs
+## Docs
 
 `npm run serve`
 
 ## Usage
-
-### With [vue-Loader](https://github.com/vuejs/vue-loader) or [vueify](https://github.com/vuejs/vueify)
-
-```js
-import IcCrudDropdown from 'ic-crud-dropdown.vue';
-
-Vue.component('ic-crud-dropdown', IcCrudDropdown);
-```
-
-### ES6 Modules / CommonJS
 
 ```js
 import IcCrudDropdown from 'ic-crud-dropdown';
@@ -54,7 +44,7 @@ Vue.component('ic-crud-dropdown', IcCrudDropdown);
 
 ## Build
 
-Build configuration is located in the `poi.config.js` file, to build just run: `npm run build`, it will build to `cjs` and `umd` directories.
+Build configuration is located in the `poi.config.js` file, to build just run: `npm run build`, it will build to `dist` directory.
 
 ## Tests
 
