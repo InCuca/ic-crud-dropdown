@@ -40,7 +40,7 @@ Vue.component('ic-crud-dropdown', IcCrudDropdown);
 <link rel="stylesheet" type="text/css" href="./dist/umd/ic-crud-dropdown.min.css">
 
 <script type="text/javascript">
-  Vue.component('ic-crud-dropdown', window.IcCrudDropdown);
+  Vue.component('ic-crud-dropdown', window.IcCrudDropdown.default);
 </script>
 ```
 
