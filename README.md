@@ -23,6 +23,8 @@ Dependencies (Should be added manually):
 
 ## Usage
 
+[Demo](https://jsfiddle.net/kwb27zL6/)
+
 ```js
 import IcCrudDropdown from 'ic-crud-dropdown';
 import 'ic-crud-dropdown/dist/ic-crud-dropdown.min.css';
