@@ -275,7 +275,7 @@ describe('ic-crud-dropdown.vue', () => {
 
       return Promise
         .resolve()
-        .then(click(vm.$el.querySelector('.iccd-select-trash_button')))
+        .then(click(vm.$el.querySelector('.iccd-select-trash_button .fa.fa-trash')))
         .then(clickOk(vm.$refs.deleteModal))
         .then(() => whenDeleteEvent);
     })
