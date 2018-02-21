@@ -46,9 +46,10 @@
             class="iccd-select-trash_button"
             v-if="!disableDelete"
             :style="{visibility: focusedItem === item?'visible':'hidden'}"
-            :title="txtTrashItem"
-            @click="onTrashClick(item)">
-            <i class="fa fa-trash"></i>
+            :title="txtTrashItem">
+            <i 
+              class="fa fa-trash"
+              @click.stop="onTrashClick(item)"></i>
           </span>
         </b-dropdown-item>
         <infinite-loading v-if="enablePagination" @infinite="onInfiniteScroll" />
