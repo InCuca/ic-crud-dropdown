@@ -360,7 +360,7 @@ export default {
       this.$emit('search', typedTerm);
     }, 200),
     onDropdownShown() {
-      this.$emit('search', null);
+      this.$emit('search', this.searchText);
     },
     onInfiniteScroll: debounce(function($state) {
       $state.search = this.searchText;
