@@ -1,3 +1,13 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/InCuca/ic-crud-dropdown/compare/v1.1.0...v1.2.0) (2018-03-21)
+
+
+### Features
+
+* **ic-crud-dropdown:** add txtDeleteConfirmation prop ([8785b43](https://github.com/InCuca/ic-crud-dropdown/commit/8785b43))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/InCuca/ic-crud-dropdown/compare/v1.0.2...v1.1.0) (2018-02-27)
 
