@@ -70,5 +70,9 @@ export default {
       type: String,
       default: 'Delete Item'
     },
+    txtDeleteConfirmation: {
+      type: String,
+      default: 'Are you sure to delete %s?'
+    }
   }
 }

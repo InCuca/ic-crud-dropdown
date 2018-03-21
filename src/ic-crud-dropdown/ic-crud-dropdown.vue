@@ -47,7 +47,7 @@
             v-if="!disableDelete"
             :style="{visibility: focusedItem === item?'visible':'hidden'}"
             :title="txtTrashItem">
-            <i 
+            <i
               class="fa fa-trash"
               @click.stop="onTrashClick(item)"></i>
           </span>
@@ -115,7 +115,7 @@
       ref="deleteModal"
       v-if="!disableModals"
       :title="txtTrashItem">
-      Are you sure to delete <span class="trashItemName">this item</span>?
+      {{deleteModalText}}
     </b-modal>
   </div>
 </template>
@@ -272,7 +272,11 @@ export default {
       /**
        * It will be used by editForm with current clicked item
        */
-      editingItem: null
+      editingItem: null,
+      /**
+       * It will be used in deleteModal
+       */
+      deleteModalText: null,
     }
   },
   computed: {
@@ -399,9 +403,12 @@ export default {
           this.$refs.deleteModal.$off('ok');
         });
 
-        this.$refs.deleteModal.$el
-          .querySelector('.trashItemName')
-          .innerHTML = this.getItemTitle(item);
+        this.deleteModalText = this
+          .txtDeleteConfirmation
+          .replace(
+            '%s',
+            this.getItemTitle(item) || 'this item'
+          );
 
         this.$refs.deleteModal.show();
       }
