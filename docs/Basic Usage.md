@@ -7,6 +7,7 @@ new Vue({
           :items="shows"
           :formlyEditFields="fields"
           :formlyAddFields="fields"
+          :defaultValue="createDefaultValue"
           txtSingleEntitityName="TV Show"
           txtPluralEntitityName="TV Shows"
           @create="onCreate"
@@ -33,13 +34,17 @@ new Vue({
       }, {
         key: 'channel',
         type: 'select',
-        options: ['CB ', 'USA'],
+        options: [
+          {label: 'CB ', value: 'cb'},
+          {label: 'USA', value: 'usa'},
+          {label: 'CBS', value: 'cbs'}
+        ],
         templateOptions: {label: 'Channel'}
       },
     ],
     shows: [
-      { id: 's0', name: 'The Big Bang Theory', season: 1, channel: 'CBS'},
-      { id: 's1', name: 'Suits', season: 3, channel: 'USA'},
+      { id: 's0', name: 'The Big Bang Theory', season: 1, channel: 'cb'},
+      { id: 's1', name: 'Suits', season: 3, channel: 'usa'},
     ],
     selectedShow: null,
   },
@@ -61,6 +66,13 @@ new Vue({
     },
     onSelect(event) {
       this.selectedShow = event.item;
+    },
+    createDefaultValue() {
+      return {
+        name: 'New Serie Name',
+        season: 1,
+        channel: 'cbs'
+      }
     }
   }
 });

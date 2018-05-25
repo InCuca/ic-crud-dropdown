@@ -72,6 +72,7 @@
       <!-- @slot Content before the form the form in modals -->
       <slot name="pre-form"></slot>
       <ic-formly
+        :value="defaultValue()"
         ref="addForm"
         :fields="formlyAddFields"
         @input="onAddFormSubmission"/>
@@ -86,7 +87,6 @@
         </b-button>
       </template>
     </b-modal>
-
     <!-- EDIT MODAL -->
     <b-modal
       ref="editModal"
@@ -248,7 +248,15 @@ export default {
     selectedItem: {
       type: Object,
       default: null
-    }
+    },
+    /*
+    * A function that return default value for add form,
+    * returns empty object if not defined
+    */
+    defaultValue: {
+      type: Function,
+      default: () => ({}),
+    },
   },
 
   data() {
