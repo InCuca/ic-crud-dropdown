@@ -1,3 +1,13 @@
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/InCuca/ic-crud-dropdown/compare/v1.3.0...v1.3.1) (2018-06-20)
+
+
+### Features
+
+* **ic-crud-dropdown:** add error events ([60e44cc](https://github.com/InCuca/ic-crud-dropdown/commit/60e44cc))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/InCuca/ic-crud-dropdown/compare/v1.2.0...v1.3.0) (2018-05-25)
 
