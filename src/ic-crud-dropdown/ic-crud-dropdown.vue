@@ -179,7 +179,9 @@ export default {
     },
     /**
      * The mapping of the entitity fields to inputs in the editing form
-     * More details in {@link https://matt-sanders.gitbooks.io/vue-formly/content/v/2.0/how_to_use/properties_and_options.html#fields|Vue Formly Docs}
+     * More details in following links:
+     *  - https://matt-sanders.gitbooks.io/vue-formly/content/
+     *  - https://github.com/formly-js/vue-formly-bootstrap/
      */
     formlyEditFields: {
       type: Array,
@@ -187,7 +189,9 @@ export default {
     },
     /**
      * The mapping of the entitity fields to inputs in the adding form
-     * More details in {@link https://matt-sanders.gitbooks.io/vue-formly/content/v/2.0/how_to_use/properties_and_options.html#fields|Vue Formly Docs}
+     * More details in following links:
+     *  - https://matt-sanders.gitbooks.io/vue-formly/content/
+     *  - https://github.com/formly-js/vue-formly-bootstrap/
      */
     formlyAddFields: {
       type: Array,
