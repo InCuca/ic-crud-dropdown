@@ -75,7 +75,8 @@
         :value="defaultValue()"
         ref="addForm"
         :fields="formlyAddFields"
-        @input="onAddFormSubmission"/>
+        @input="onAddFormSubmission"
+        @error="$emit('add-error', $event)"/>
       <!-- @slot Content after the form the form in modals -->
       <slot name="post-form"></slot>
       <template slot="modal-footer">
@@ -98,7 +99,8 @@
         ref="editForm"
         :value="editingItem || {}"
         :fields="formlyEditFields"
-        @input="onEditFormSubmission"/>
+        @input="onEditFormSubmission"
+        @error="$emit('edit-error', $event)"/>
       <slot name="post-form"></slot>
       <template slot="modal-footer">
         <b-button
@@ -130,6 +132,13 @@ import 'perfect-scrollbar/css/perfect-scrollbar.css'
 import IcFormly from 'ic-formly'
 Vue.use(IcFormly)
 
+/**
+ * When a validation error on add modal occurs
+ * @event add-error
+ *
+ * When a validation error on edit modal occurs
+ * @event edit-error
+ */
 export default {
   name: 'ic-crud-dropdown',
   components: {
