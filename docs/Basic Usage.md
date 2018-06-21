@@ -25,12 +25,12 @@ new Vue({
         key: 'name',
         type: 'input',
         required: true,
-        templateOptions: {label: 'Name'}
+        templateOptions: {label: 'Name *'}
       }, {
         key: 'season',
         type: 'input',
         requried: true,
-        templateOptions: {label: 'Season', atts: {type: 'number'}}
+        templateOptions: {label: 'Season *', atts: {type: 'number'}}
       }, {
         key: 'channel',
         type: 'select',
