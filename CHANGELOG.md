@@ -1,3 +1,14 @@
+<a name="1.3.2"></a>
+## [1.3.2](https://github.com/InCuca/ic-crud-dropdown/compare/v1.3.1...v1.3.2) (2018-06-21)
+
+
+### Bug Fixes
+
+* **ic-crud-dropdown:** fix not a function error ([08abe24](https://github.com/InCuca/ic-crud-dropdown/commit/08abe24))
+* **ic-crud-dropdown:** fix validation errors when defaultValue is used ([9d79f6a](https://github.com/InCuca/ic-crud-dropdown/commit/9d79f6a))
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/InCuca/ic-crud-dropdown/compare/v1.3.0...v1.3.1) (2018-06-20)
 
