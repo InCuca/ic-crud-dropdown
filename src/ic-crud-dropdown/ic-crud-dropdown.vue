@@ -325,6 +325,12 @@ export default {
   },
   mounted() {
     this.ps = new PerfectScrollbar(this.$refs.selectItems);
+    /* Scroll to top on items change */
+    this.$watch('items', () => {
+      this.$el
+        .querySelector('.iccd-select-items')
+        .scrollTop = 0;
+    });
   },
   methods: {
     onDropdownItemClick(item) {
