@@ -344,7 +344,10 @@ export default {
   methods: {
     setComputedDefaultValue() {
       const addForm = this.$refs.addForm;
-      const icFormlyEmptyValue = addForm.emptyModel();
+      let icFormlyEmptyValue = addForm.emptyModel;
+      if (typeof icFormlyEmptyValue === 'function') {
+        icFormlyEmptyValue = icFormlyEmptyValue.call(addForm);
+      }
       this.computedDefaultValue = {
         ...icFormlyEmptyValue,
         ...this.defaultValue(),
