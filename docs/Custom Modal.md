@@ -38,7 +38,7 @@ new Vue({
         key: 'name',
         type: 'input',
         required: true,
-        templateOptions: {label: 'Name'}
+        templateOptions: {label: 'Name *'}
       }
     ],
     shows: [

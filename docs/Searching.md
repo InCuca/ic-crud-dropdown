@@ -23,17 +23,18 @@ new Vue({
         key: 'name',
         type: 'input',
         required: true,
-        templateOptions: {label: 'Name'}
+        templateOptions: {label: 'Name *'}
       }, {
         key: 'season',
         type: 'input',
-        requried: true,
-        templateOptions: {label: 'Season', atts: {type: 'number'}}
+        required: true,
+        templateOptions: {label: 'Season *', atts: {type: 'number'}}
       }, {
         key: 'channel',
         type: 'select',
+        required: true,
         options: ['CBS', 'AMC ', 'USA', 'Netflix', 'Showtime', 'HBO', 'History'],
-        templateOptions: {label: 'Channel'}
+        templateOptions: {label: 'Channel *'}
       },
     ],
     shows: [
