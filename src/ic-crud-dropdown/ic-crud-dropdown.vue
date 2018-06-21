@@ -72,7 +72,7 @@
       <!-- @slot Content before the form the form in modals -->
       <slot name="pre-form"></slot>
       <ic-formly
-        :value="defaultValue()"
+        :value="computedDefaultValue"
         ref="addForm"
         :fields="formlyAddFields"
         @input="onAddFormSubmission"
@@ -298,6 +298,10 @@ export default {
        * It will be used in deleteModal
        */
       deleteModalText: null,
+      /**
+       * It will be updated with defaultValue and icFormly emptyModel
+       */
+      computedDefaultValue: null,
     }
   },
   computed: {
@@ -307,7 +311,7 @@ export default {
     txtDropdown() {
       if (this.selectedItem) return this.getItemTitle(this.selectedItem);
       return this.txtPluralEntitityName;
-    }
+    },
   },
   watch: {
     /**
@@ -325,8 +329,27 @@ export default {
   },
   mounted() {
     this.ps = new PerfectScrollbar(this.$refs.selectItems);
+    // watch defaultValue and addForm emptyModel to
+    // merge emptyModel with defaultValue to
+    // fix error validations
+    this.$watch(
+      'defaultValue',
+      this.setComputedDefaultValue,
+      {immediate: true});
+    this.$watch(
+      () => this.$refs.addForm.emptyModel,
+      this.setComputedDefaultValue
+    );
   },
   methods: {
+    setComputedDefaultValue() {
+      const addForm = this.$refs.addForm;
+      const icFormlyEmptyValue = addForm.emptyModel();
+      this.computedDefaultValue = {
+        ...icFormlyEmptyValue,
+        ...this.defaultValue(),
+      };
+    },
     onDropdownItemClick(item) {
       /**
        * Select event with the selected item, use this event to update selectedItem prop
