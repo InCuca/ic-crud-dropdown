@@ -123,14 +123,11 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import texts from './text-props.js'
 import debounce from 'debounce'
 import InfiniteLoading from 'vue-infinite-loading'
 import PerfectScrollbar from 'perfect-scrollbar'
 import 'perfect-scrollbar/css/perfect-scrollbar.css'
-import IcFormly from 'ic-formly'
-Vue.use(IcFormly)
 
 /**
  * When a validation error on add modal occurs
